@@ -1,0 +1,19 @@
+.Weather {
+    font-size: 20px;
+    margin-left: 20px;
+
+}
+.form-control {
+    width: 400px;
+    height: 25px;
+    background: rgb(247, 246, 246);
+    margin-left: 60px;
+    border-style:1px #ede9e900;
+}
+.btn {
+    width: 100px;
+    height: 25px;
+    background: rgb(234, 192, 120);
+    border-radius: 10%;
+
+}
