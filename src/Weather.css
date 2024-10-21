@@ -1,19 +1,42 @@
 .Weather {
     font-size: 20px;
     margin-left: 20px;
-
+}
+.Weather ul {
+    margin: 0 0 0 30px;
+    font-size: 20px;
+    padding: 0 0 0 0;
+    line-height: 30px;      
+}
+.Weather li {
+    margin: 0 0 0 30px;
+    font-size: 20px;
+    padding: 0 0 0 0;
+    line-height: 30px;
+}
+h1 {
+    margin: 0 0 0 30px;
+    font-size: 50px;
+    padding: 0 0 0 0;
+    line-height: 70px;
+    
 }
 .form-control {
-    width: 400px;
-    height: 25px;
+    width: 200px;
+    height: 35px;
+    margin-top: 20px;
+    font-size: 24px;
     background: rgb(247, 246, 246);
-    margin-left: 60px;
+    margin-left: 40px;
+    border-radius: 8px;
     border-style:1px #ede9e900;
 }
 .btn {
     width: 100px;
-    height: 25px;
+    height: 35px;
+    font-size: 20px;
+    margin-left: 2px;
     background: rgb(234, 192, 120);
-    border-radius: 10%;
+    border-radius: 8px;
 
 }
