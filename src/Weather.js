@@ -1,45 +1,75 @@
 import React from "react";
 import "./Weather.css";
-import weatherIcon from "./WeatherIcons/cloud.png";
+import WeatherForecast from "./WeatherForecast";
+import axios from "axios";
 
-export default function Weather() {
-  return (
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coordinates,
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
+      date: new Date(response.data.time * 1000),
+      descripton: response.data.condition.description,
+      icon: response.data.condition.icon,
+      wind: response.data.wind.speed,
+      city: response.data.city,
+    });
+  }
+
+function search() {
+
+  const apiKey ="be81f193e065bf5feb2d944c7336968b";
+  let apiUrl =`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then (handleResponse);
+
+function handleSubmit(event){
+  event.preventDefault();
+  search();
+}
+
+
+function handleCityChange(event) {
+  setCity (event.target.value);
+
+}
+if (weatherData.ready) {
+
+return (
     <div className="Weather">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="row">
-          <div className="search-box">
+          <div className="col-9">
             <input
               type="search"
               placeholder="Enter a city.."
               className="form-control"
+              autoFocus="on"
+              onChange={handleCityChange}
             />
-            <input type="submit" 
-            value="Search" 
-            className="btn btn-primary" />
+            </div>
+            <div className="col=3">
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-primary w-100"
+            />
           </div>
         </div>
       </form>
 
-      <h1>Singapore</h1>
-      <ul>
-        <li>Wednesday 07:00</li>
-        <li> Mostly Cloudy</li>
-      </ul>
-
-      <div className="row">
-        <div className="col-6">
-          <img src={weatherIcon} alt="Mostly Cloudy" />
-        </div>
-        <span> trying to fix 6</span>
-
-        <div className="col-6">
-          <ul>
-            <li>Precipitation: 15%</li>
-            <li>Humidity: 75%</li>
-            <li>Wind: 13km/h</li>
-          </ul>
-        </div>
-      </div>
+    <WeatherInfo data ={weatherData} />
+    <WeatherForecast coordinates={weatherData.coordinates} />   
     </div>
-  );
+);
+} else {
+  search();
+  return "Loading...";   
+}
+}
 }
