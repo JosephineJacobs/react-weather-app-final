@@ -28,8 +28,9 @@ export default function Weather() {
 
       <div className="row">
         <div className="col-6">
-          <img src={weatherIcon} alt="Cloudy" />6
+          <img src={weatherIcon} alt="Mostly Cloudy" />
         </div>
+        <span> trying to fix 6</span>
 
         <div className="col-6">
           <ul>

@@ -1,7 +1,11 @@
 .Weather {
+    place-self: center;
+    padding: 40px;
+    align-items: center;
     font-size: 20px;
     margin-left: 20px;
 }
+
 .Weather ul {
     margin: 0 0 0 30px;
     font-size: 20px;
@@ -29,12 +33,13 @@ h1 {
     background: rgb(247, 246, 246);
     margin-left: 40px;
     border-radius: 8px;
-    border-style:1px #ede9e900;
+    border-style:1px #a29c9c00;
 }
 .btn {
     width: 100px;
     height: 35px;
-    font-size: 20px;
+    font-size: 24px;
+    margin-top: 20px;
     margin-left: 2px;
     background: rgb(234, 192, 120);
     border-radius: 8px;

@@ -10,7 +10,7 @@ export default function App() {
 <Weather />
      
       <footer>
-        This project is tested and  coded by{" "}
+        This project is coded by{" "}
         <a
           href="https://www.shecodes.io/graduates/83802-josephine-lu-ching-jacobs"
           target="_blank"
